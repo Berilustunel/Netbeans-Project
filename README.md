@@ -1,2 +1,2 @@
 # Netbeans WEB Project
-Güncel "Neyim Var" Projesi
+web programming for "Patient-Diagnosis"
