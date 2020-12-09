@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="scripts/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript">
+        function ShowHidePass(objChk) {
+            if (objChk.checked)
+                sifre.type = "kullanici_adi"
+            else
+                sifre.type = "sifre"
+        }
+    </script>
+    <ui:define name="content">
+        <h:outputLabel value="Üye Girişi"/><br/>
+        <h:form>
+            <h:panelGrid columns="2">
+                <div class="form-group">
+                    <label> ID </label>
+                    <h:inputText styleClass="form-control" value="#{uyeBean.uye_id}" /> <br/>
+                    <label> Kullanıcı Adı </label>
+                    <h:inputText styleClass="form-control" value="#{uyeBean.kullanici_adi}" /> <br/>
+                </div>
+                <div class="input-group">
+                    <label> Şifre </label> 
+                    <input type="password" style="" class="form-control" onclick="ShowHidePass(sifre)" value="#{uyeBean.sifre}" /> <br/>   
+                <br/> <br/><br/> <br/><br/> 
+                <h:commandButton styleClass="btn btn-primary" action="#{uyeBean.bilgileriOnayla(kullanici_adi, sifre)}" value="Giriş Yap"/>
+                </div>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
