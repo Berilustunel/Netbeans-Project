@@ -12,12 +12,26 @@
             <div class="form-group">
                 <label> Randevu ID </label>
                 <h:inputText value="#{randevuBean.entity.id_randevu}" /> <br/>  
-                <label> Hasta ID </label>
-                <h:inputText value="#{randevuBean.entity.id_hasta}" /> <br/> 
-                <label> Doktor ID </label>
-                <h:inputText value="#{randevuBean.entity.id_doktor}" /> <br/> 
-                <label> Klinik ID </label>
-                <h:inputText value="#{randevuBean.entity.id_klinik}" /> <br/> 
+                <label> Hasta Adı </label>
+                <h:selectOneMenu value="#{randevuBean.entity.hasta_id}">
+                    <f:selectItems value="#{randevuBean.read}" var="r" itemLabel="#{r.hasta_id}" itemValue="#{r.hasta_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Hasta Soyadı </label>
+                <h:selectOneMenu value="#{randevuBean.entity.hasta_id}">
+                    <f:selectItems value="#{randevuBean.read}" var="r" itemLabel="#{r.hasta_id}" itemValue="#{r.hasta_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Doktor Adı </label>
+                <h:selectOneMenu value="#{randevuBean.entity.doktor_id}">
+                    <f:selectItems value="#{randevuBean.read}" var="r" itemLabel="#{r.doktor_id}" itemValue="#{r.doktor_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Doktor Soyadı </label>
+                <h:selectOneMenu value="#{randevuBean.entity.doktor_id}">
+                    <f:selectItems value="#{randevuBean.read}" var="r" itemLabel="#{r.doktor_id}" itemValue="#{r.doktor_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Klinik </label>
+                <h:selectOneMenu value="#{randevuBean.entity.klinik_id}">
+                    <f:selectItems value="#{randevuBean.read}" var="r" itemLabel="#{r.klinik_id}" itemValue="#{r.klinik_id}"> </f:selectItems>
+                </h:selectOneMenu>
                 <label> Randevu Tarih </label>
                 <h:inputText value="#{randevuBean.entity.randevu_tarih}" /> <br/> 
             </div>

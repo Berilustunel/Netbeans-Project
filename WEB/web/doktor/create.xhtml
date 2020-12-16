@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <div class="form-group">
+                <label> Doktor ID </label>
+                <h:inputText styleClass="form-control" value="#{doktorBean.entity.doktor_id}" /> <br/>
+                <label> Doktor Ad </label>
+                <h:inputText styleClass="form-control" value="#{doktorBean.entity.doktor_ad}" /> <br/>
+                <label> Doktor Soyad </label>
+                <h:inputText styleClass="form-control" value="#{doktorBean.entity.doktor_soyad}" /> <br/>
+                <label> Doktor Yaş </label>
+                <h:inputText styleClass="form-control" value="#{doktorBean.entity.doktor_yas}" /> <br/>
+                <label> Klinik </label>
+                <h:selectOneMenu value="#{klinikBean.entity.klinik_id}">
+                    <f:selectItems value="#{klinikBean.read}" var="k" itemLabel="#{k.ad}" itemValue="#{k.klinik_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Branş </label>
+                <h:selectOneMenu value="#{doktorBean.entity.brans_id}">
+                    <f:selectItems value="#{bransBean.read}" var="b" itemLabel="#{b.bolumler}" itemValue="#{b.brans_id}"> </f:selectItems>
+                </h:selectOneMenu>
+            </div>
+            <h:commandButton styleClass="btn btn-primary" action="#{doktorBean.create()}" value="Create"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

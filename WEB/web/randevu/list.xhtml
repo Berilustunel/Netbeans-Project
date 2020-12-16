@@ -17,16 +17,24 @@
                         #{h.id_randevu}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> HASTA ID </f:facet>
-                        #{h.id_hasta}
+                    <f:facet name ="header"> HASTA ADI </f:facet>
+                        #{randevuBean.getById(h.hasta_id)}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> DOKTOR ID </f:facet>
-                        #{h.id_doktor}
+                    <f:facet name ="header"> HASTA SOYADI </f:facet>
+                        #{randevuBean.getById(h.hasta_id)}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> KLİNİK ID </f:facet>
-                        #{h.id_klinik}
+                    <f:facet name ="header"> DOKTOR ADI </f:facet>
+                        #{randevuBean.getById(h.doktor_id)}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> DOKTOR SOYADI </f:facet>
+                        #{randevuBean.getById(h.doktor_id)}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> KLİNİK ADI </f:facet>
+                        #{randevuBean.getById(h.klinik_id)}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> RANDEVU TARİHİ </f:facet>

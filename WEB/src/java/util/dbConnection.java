@@ -2,13 +2,18 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public abstract class dbConnection {
 
     private Connection connection;
 
-    public Connection connect() {
+    public Connection connect() throws SQLException {
+        
+    if (this.connection == null || this.connection.isClosed()){
+        
+    
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/hastatani?user=root";
@@ -26,6 +31,7 @@ public abstract class dbConnection {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
         return this.connection;
     }
 }

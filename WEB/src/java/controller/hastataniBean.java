@@ -7,9 +7,11 @@ package controller;
 
 import dao.hastataniDAO;
 import entity.hastatani;
+import entity.ilac;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -22,6 +24,19 @@ public class hastataniBean implements Serializable {
 
     private hastataniDAO dao;
     private hastatani entity;
+    
+    /*@Inject //CDI-hastalikBean i inject etmek, erişmek için 
+    private hastalikBean hastalikBean;
+    
+    private int selectedHastalik;//geçici değişkende hastalığın id si tutulur, oluşturulmak istenen hastanın nesnesine nesne olarak gönderilir.  
+
+    public int getSelectedHastalik() {
+        return selectedHastalik;
+    }
+
+    public void setSelectedHastalik(int selectedHastalik) {
+        this.selectedHastalik = selectedHastalik;
+    }*/
 
     /*private int hasta_id;
     private String ad;
@@ -29,9 +44,15 @@ public class hastataniBean implements Serializable {
     private int yas;*/
     //CRUD İŞLEMLERİ
     public String create() {
+        //hastalik l = hastalikBean.getDao().getById(selectedHastalik);
+        //entity.setHastalik(l);
         this.getDao().create(entity);
         this.entity = new hastatani();
-        return "index";
+        return "/hasta/list";
+    }
+    
+    public hastatani getById(int id){
+        return this.getDao().getById(id);
     }
 
     public List<hastatani> getRead() {
@@ -41,13 +62,16 @@ public class hastataniBean implements Serializable {
 
     public String updateForm(hastatani h) {
         this.entity = h;
-        return "update";
+        //this.selectedHastalik = h.getHastalik().getHastalik_id();
+        return "/hasta/update";
     }
 
     public String update() {
+        //hastalik l = hastalikBean.getDao().getById(selectedHastalik);
+        //entity.setHastalik(l);
         this.getDao().update(entity);
         this.entity = new hastatani();
-        return "index";
+        return "/hasta/list";
     }
 
     public void delete(hastatani h) {

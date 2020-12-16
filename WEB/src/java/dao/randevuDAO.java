@@ -2,6 +2,7 @@
  
 package dao;
 
+
 import entity.randevu;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -12,12 +13,26 @@ import util.dbConnection;
 
  
 public class randevuDAO extends dbConnection {
-
+    
+    public randevu getById(int id){
+        randevu r = null;
+        try{
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from randevu where id_randevu="+id );
+            rs.next();
+            r = new randevu(rs.getInt("id_randevu"),rs.getInt("hasta_id"), rs.getInt("doktor_id"),rs.getInt("klinik_id"),rs.getDate("randevu_tarih") );
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+    
+  
     public void create(randevu h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("insert into randevu (id_randevu,id_hasta,id_doktor,id_klinik,randevu_tarih) "
-                    + "values('" + h.getId_randevu() + "','" + h.getId_hasta()+ "','" + h.getId_doktor() + "','" + h.getId_klinik() + "', '" +h.getRandevu_tarih()+ "')");
+            st.execute("insert into randevu (id_randevu, hasta_id, doktor_id, klinik_id, randevu_tarih) "
+                    + "values('" + h.getId_randevu() + "','" + h.getHasta_id()+ "', '" + h.getDoktor_id()+ "','" + h.getKlinik_id()+ "', '" +h.getRandevu_tarih()+ "')");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -29,7 +44,8 @@ public class randevuDAO extends dbConnection {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from randevu order by id_randevu asc");
             while (rs.next()) {
-                randevu tmp = new randevu(rs.getInt("id_randevu"),rs.getInt("id_hasta"),rs.getInt("id_doktor"),rs.getInt("id_klinik"),rs.getDate("randevu_tarih") );
+                
+                randevu tmp = new randevu(rs.getInt("id_randevu"),rs.getInt("hasta_id"),rs.getInt("doktor_id"),rs.getInt("klinik_id"),rs.getDate("randevu_tarih") );
                 list.add(tmp);
             }
 
@@ -43,7 +59,7 @@ public class randevuDAO extends dbConnection {
     public void update(randevu h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update randevu set id_randevu='" +h.getId_randevu()  + "',id_hasta='" + h.getId_hasta()+ "',id_doktor='" + h.getId_doktor()+ "',id_klinik='" +h.getId_klinik()  + "',randevu_tarih='" +h.getRandevu_tarih()  + "' where hasta_id=" + h.getId_randevu());
+            st.execute("update randevu set id_randevu='" +h.getId_randevu()  + "',hasta_id='" + h.getHasta_id()+ "',doktor_id='" + h.getDoktor_id()+ "',klinik_id='" +h.getKlinik_id()+ "',randevu_tarih='" +h.getRandevu_tarih()  + "' where id_randevu=" + h.getId_randevu());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

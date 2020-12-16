@@ -17,6 +17,19 @@ import util.dbConnection;
  * @author Beril
  */
 public class klinikDAO extends dbConnection {
+    
+    public klinik getById(int id){
+        klinik k = null;
+        try{
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from klinik where klinik_id="+id );
+            rs.next();
+            k = new klinik (rs.getInt("klinik_id"), rs.getString("ad"));
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return k;
+    }
 
     public void create(klinik h) {
         try {

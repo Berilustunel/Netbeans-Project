@@ -11,16 +11,28 @@
             <div class="form-group">
                 <label> Hasta ID </label>
                 <h:inputText styleClass="form-control" value="#{hastataniBean.entity.hasta_id}" /> <br/>
-                <label> Hastalık ID </label>
-                <h:selectOneMenu value="#{hastataniBean.entity.hastalik}" converter="hastalikConverter">
-                    <f:selectItems value="#{hastalikBean.read}" var="l" itemLabel="#{l.ad}" itemValue="#{l}"/><br/>
-                </h:selectOneMenu> <br/> <br/>
+                <label> Hastalık </label>
+                <h:selectOneMenu value="#{hastalikBean.entity.hastalik_id}">
+                    <f:selectItems value="#{hastalikBean.read}" var="l" itemLabel="#{l.hastalik_id}" itemValue="#{l.hastalik_id}"> </f:selectItems>
+                </h:selectOneMenu>
                 <label> Hasta Ad </label>
                 <h:inputText styleClass="form-control" value="#{hastataniBean.entity.ad}" /> <br/>
                 <label> Hasta Soyad </label>
                 <h:inputText styleClass="form-control" value="#{hastataniBean.entity.soyad}" /> <br/>
                 <label> Hasta Yaş </label>
                 <h:inputText styleClass="form-control" value="#{hastataniBean.entity.yas}" /> <br/>
+                <label> İlaç </label>
+                 <h:selectOneMenu value="#{ilacBean.entity.ilac_id}">
+                    <f:selectItems value="#{ilacBean.read}" var="i" itemLabel="#{i.ilac_ad}" itemValue="#{i.ilac_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Muayene Tarihi </label>
+                <h:selectOneMenu value="#{muayeneBean.entity.muayene_id}">
+                    <f:selectItems value="#{muayeneBean.read}" var="m" itemLabel="#{m.muayene_tarih}" itemValue="#{m.muayene_id}"> </f:selectItems>
+                </h:selectOneMenu>
+                <label> Muayene Saati </label>
+                <h:selectOneMenu value="#{muayeneBean.entity.muayene_id}">
+                    <f:selectItems value="#{muayeneBean.read}" var="m" itemLabel="#{m.muayene_saat}" itemValue="#{m.muayene_saat}"> </f:selectItems>
+                </h:selectOneMenu>
             </div>
             <h:commandButton styleClass="btn btn-primary" action="#{hastataniBean.update()}" value="Update"/>
         </h:form>
