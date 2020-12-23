@@ -34,9 +34,9 @@ public class hastalikBean implements Serializable {
         return "/hastalik/list";
     }
     
-    /*public hastalik getById(int id){
+    public hastalik getById(int id){
         return this.getDao().getById(id);
-    }*/
+    }
 
     public List<hastalik> getRead() {
         return this.getDao().read();

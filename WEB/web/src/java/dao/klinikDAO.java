@@ -17,12 +17,25 @@ import util.dbConnection;
  * @author Beril
  */
 public class klinikDAO extends dbConnection {
+    
+    public klinik getById(int id){
+        klinik k = null;
+        try{
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from klinik where klinik_id="+id );
+            rs.next();
+            k = new klinik (rs.getInt("klinik_id"), rs.getString("ad"), rs.getInt("hastalik_id"));
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return k;
+    }
 
     public void create(klinik h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("insert into klinik (klinik_id, ad) "
-                    + "values('" + h.getKlinik_id()+ "','" + h.getAd() + "')");
+            st.execute("insert into klinik (klinik_id, ad, hastalik_id) "
+                    + "values('" + h.getKlinik_id()+ "','" + h.getAd() + "', '" + h.getHastalik_id()+ "')");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -34,7 +47,7 @@ public class klinikDAO extends dbConnection {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from klinik order by klinik_id asc");
             while (rs.next()) {
-                klinik tmp = new klinik(rs.getInt("klinik_id"), rs.getString("ad"));
+                klinik tmp = new klinik(rs.getInt("klinik_id"), rs.getString("ad"), rs.getInt("hastalik_id"));
                 list.add(tmp);
             }
 
@@ -48,7 +61,7 @@ public class klinikDAO extends dbConnection {
     public void update(klinik h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update klinik set ad='" + h.getAd());
+            st.executeUpdate("update klinik set ad='" + h.getAd() + "'where klinik_id=" + h.getKlinik_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -58,7 +71,7 @@ public class klinikDAO extends dbConnection {
     public void delete(klinik h) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from klinik where klinik_id='" + h.getKlinik_id()+ "')");
+            st.executeUpdate("delete from klinik where klinik_id=" + h.getKlinik_id());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

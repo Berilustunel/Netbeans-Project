@@ -4,11 +4,18 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/admin.xhtml">
-    
+
     <ui:define name="content">
-        yeni içerik
+        <h:body style="background-color:powderblue;">   
+            <h:form> 
+                <h:outputLabel style="font-style: italic" value="Hoşgeldiniz.. Lütfen Giriş Sayfalarından Birine Gidiniz..." /> <br/>
+                <h:commandButton styleClass="btn btn-outline-primary" action="/yonetici_uye/yonetici_uyegirisi" value="Yönetici Giriş Sayfası İçin Tıklayın"/> 
+                <h:commandButton styleClass="btn btn-outline-primary" action="/hasta_uye/hasta_uyegirisi" value="Hasta Üye Giriş Sayfası İçin Tıklayın"/> 
+                <h:commandButton styleClass="btn btn-outline-primary" action="/doktor_uye/doktor_uyegirisi" value="Doktor Üye Giriş Sayfası İçin Tıklayın"/> 
+            </h:form>
+            <br/> <img src="resources/images/doktor.jpg"/>
+        </h:body>     
+
     </ui:define>
-                    
-    
+
 </ui:composition>
-                

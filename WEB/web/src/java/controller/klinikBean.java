@@ -23,15 +23,16 @@ public class klinikBean implements Serializable {
     private klinikDAO dao;
     private klinik entity;
 
-    /*private int hasta_id;
-    private String ad;
-    private String soyad;
-    private int yas;*/
+    
     //CRUD İŞLEMLERİ
     public String create() {
         this.getDao().create(entity);
         this.entity = new klinik();
         return "/klinik/list";
+    }
+    
+    public klinik getById(int id){
+        return this.getDao().getById(id);
     }
 
     public List<klinik> getRead() {

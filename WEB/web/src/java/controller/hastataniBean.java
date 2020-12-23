@@ -6,11 +6,12 @@
 package controller;
 
 import dao.hastataniDAO;
-import entity.hastalik;
 import entity.hastatani;
+import entity.ilac;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,7 +25,11 @@ public class hastataniBean implements Serializable {
 
     private hastataniDAO dao;
     private hastatani entity;
-    
+
+    /*public void searchStringValueChanged(ValueChangeEvent vce) {
+        searchByTitle((String) vce.getNewValue());
+    }*/
+
     /*@Inject //CDI-hastalikBean i inject etmek, erişmek için 
     private hastalikBean hastalikBean;
     
@@ -38,7 +43,7 @@ public class hastataniBean implements Serializable {
         this.selectedHastalik = selectedHastalik;
     }*/
 
-    /*private int hasta_id;
+ /*private int hasta_id;
     private String ad;
     private String soyad;
     private int yas;*/
@@ -49,6 +54,10 @@ public class hastataniBean implements Serializable {
         this.getDao().create(entity);
         this.entity = new hastatani();
         return "/hasta/list";
+    }
+
+    public hastatani getById(int id) {
+        return this.getDao().getById(id);
     }
 
     public List<hastatani> getRead() {
@@ -98,5 +107,10 @@ public class hastataniBean implements Serializable {
     public void setEntity(hastatani entity) {
         this.entity = entity;
     }
+
+    /*private void searchByTitle(String string) {
+        this.entity.getAd() = entity.ad.searchByTitle(title);
+        //To change body of generated methods, choose Tools | Templates.
+    }*/
 
 }

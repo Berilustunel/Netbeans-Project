@@ -9,19 +9,19 @@ import java.sql.Date;
 public class randevu {
 
     private int id_randevu;
-    private int id_hasta;
-    private int id_doktor;
-    private int id_klinik;
+    private int hasta_id;
+    private int doktor_id;
+    private int klinik_id;
     private Date randevu_tarih;
 
     public randevu() {
     }
 
-    public randevu(int id_randevu, int id_hasta, int id_doktor, int id_klinik, Date randevu_tarih) {
+    public randevu(int id_randevu, int hasta_id, int doktor_id, int klinik_id, Date randevu_tarih) {
         this.id_randevu = id_randevu;
-        this.id_hasta = id_hasta;
-        this.id_doktor = id_doktor;
-        this.id_klinik = id_klinik;
+        this.hasta_id = hasta_id;
+        this.doktor_id = doktor_id;
+        this.klinik_id = klinik_id;
         this.randevu_tarih = randevu_tarih;
     }
 
@@ -33,28 +33,28 @@ public class randevu {
         this.id_randevu = id_randevu;
     }
 
-    public int getId_hasta() {
-        return id_hasta;
+    public int getHasta_id() {
+        return hasta_id;
     }
 
-    public void setId_hasta(int id_hasta) {
-        this.id_hasta = id_hasta;
+    public void setHasta_id(int hasta_id) {
+        this.hasta_id = hasta_id;
     }
 
-    public int getId_doktor() {
-        return id_doktor;
+    public int getDoktor_id() {
+        return doktor_id;
     }
 
-    public void setId_doktor(int id_doktor) {
-        this.id_doktor = id_doktor;
+    public void setDoktor_id(int doktor_id) {
+        this.doktor_id = doktor_id;
     }
 
-    public int getId_klinik() {
-        return id_klinik;
+    public int getKlinik_id() {
+        return klinik_id;
     }
 
-    public void setId_klinik(int id_klinik) {
-        this.id_klinik = id_klinik;
+    public void setKlinik_id(int klinik_id) {
+        this.klinik_id = klinik_id;
     }
 
     public Date getRandevu_tarih() {
@@ -64,10 +64,14 @@ public class randevu {
     public void setRandevu_tarih(Date randevu_tarih) {
         this.randevu_tarih = randevu_tarih;
     }
+    
+    
 
     @Override
     public String toString() {
-        return "randevu{" + "id_randevu=" + id_randevu + ", id_hasta=" + id_hasta + ", id_doktor=" + id_doktor + ", id_klinik=" + id_klinik + ", randevu_tarih=" + randevu_tarih + '}';
+        return "randevu{" + "id_randevu=" + id_randevu + ", hasta_id=" + hasta_id + ", doktor_id=" + doktor_id + ", klinik_id=" + klinik_id + ", randevu_tarih=" + randevu_tarih + '}';
     }
+
+    
     
 }
