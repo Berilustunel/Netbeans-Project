@@ -56,7 +56,7 @@ public class muayeneDAO extends dbConnection {
     public void update(muayene h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update muayene set muayene_id='" + h.getMuayene_id() + "', muayene_tarih'"+ h.getMuayene_tarih()+ "', muayene_saat'"+ h.getMuayene_saat());
+            st.executeUpdate("update muayene set muayene_tarih=" +h.getMuayene_tarih()+ "muayene_saat=" +h.getMuayene_saat()+ "where muayene_id=" +h.getMuayene_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -66,7 +66,7 @@ public class muayeneDAO extends dbConnection {
     public void delete(muayene h) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from muayene where muayene_id='" + h.getMuayene_id()+ "')");
+            st.executeUpdate("delete from muayene where muayene_id=" + h.getMuayene_id());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

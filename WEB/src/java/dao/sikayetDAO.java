@@ -48,7 +48,7 @@ public class sikayetDAO extends dbConnection {
     public void update(sikayet h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update sikayet set belirtiler='" + h.getBelirtiler());
+            st.executeUpdate("update sikayet set belirtiler='" + h.getBelirtiler() + "'where sikayet_id=" + h.getSikayet_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -58,7 +58,7 @@ public class sikayetDAO extends dbConnection {
     public void delete(sikayet h) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from sikayet where sikayet_id='" + h.getSikayet_id()+ "')");
+            st.executeUpdate("delete from sikayet where sikayet_id=" + h.getSikayet_id());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

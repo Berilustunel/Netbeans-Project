@@ -6,13 +6,13 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
-        <h:form>
-            Hoşgeldiniz <br/>
-            Lütfen Giriş Sayfasına Gidiniz... <br/><br/>
-            <h:commandButton styleClass="btn btn-primary" action="/uye/uyegirisi" value="Giriş Sayfası İçin Tıklayın"/>
-        </h:form>
+        <h:body style="background-color:powderblue;">   
+            <h:form> 
+                <h:outputLabel style="font-style: italic" value="Hoşgeldiniz.. Lütfen Giriş Sayfalarından Birine Gidiniz..." /> <br/>
+            </h:form>
+            <br/> <img src="resources/images/doktor.jpg"/>
+        </h:body>     
 
     </ui:define>
-
 
 </ui:composition>

@@ -15,7 +15,7 @@
                 <label> Reçete Saati </label>
                 <h:inputText styleClass="form-control" value="#{receteBean.entity.recete_saat}" /> <br/>
                 <label> İlaç </label>
-                <h:selectOneMenu value="#{ilacBean.entity.ilac_id}">
+                <h:selectOneMenu value="#{receteBean.entity.ilac_id}">
                     <f:selectItems value="#{ilacBean.read}" var="i" itemLabel="#{i.ilac_ad}" itemValue="#{i.ilac_id}"> </f:selectItems>
                 </h:selectOneMenu>
             </div>

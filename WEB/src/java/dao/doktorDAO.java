@@ -1,6 +1,7 @@
 package dao;
 
 import entity.doktor;
+import entity.doktor;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -12,6 +13,22 @@ import util.dbConnection;
  * @author Beril
  */
 public class doktorDAO extends dbConnection {
+    
+    public doktor getById(int id){
+        doktor d = null;
+        
+        try{
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from doktor where doktor_id= " + id);
+            rs.next();
+            
+            d = new doktor (rs.getInt("doktor_id"), rs.getString("doktor_ad"),rs.getString("doktor_soyad"),rs.getInt("doktor_yas"),rs.getInt("klinik_id"), rs.getInt("brans_id"));
+            
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return d;
+    }
 
     public void create(doktor h) {
         try {
@@ -43,7 +60,7 @@ public class doktorDAO extends dbConnection {
     public void update(doktor h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update doktor set doktor_ad='" + h.getDoktor_ad()+ /*"' doktor_soyad'"+ h.getDoktor_soyad() + "' doktor_yas'"+ h.getDoktor_yas() + "' klinik_id'"+ h.getKlinik_id()+*/ "'where doktor_id" + h.getDoktor_id());
+            st.executeUpdate("update doktor set doktor_ad='" + h.getDoktor_ad()+ "'where doktor_id=" + h.getDoktor_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

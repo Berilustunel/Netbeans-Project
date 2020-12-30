@@ -7,35 +7,38 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
-
+        <h:body>
+            <img src="resources/images/ilaç.jpg" width="500" height="350"/>
+        </h:body>
 
         <h:form>
             <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön" />
             <h:commandButton styleClass="btn btn-info" action="/ilac/create" value="Yeni İlaç Kayıt" />
 
-            <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{ilacBean.read}" var="h">
+
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{ilacBean.read}" var="h">
                 <h:column>
-                    <f:facet name ="header"> İlaç ID </f:facet>
+                    <f:facet name ="header"> İLAÇ ID </f:facet>
                         #{h.ilac_id}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> İlaç Adı </f:facet>
+                    <f:facet name ="header"> İLAÇ ADI </f:facet>
                         #{h.ilac_ad}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> İlaç Ücreti </f:facet>
+                    <f:facet name ="header"> İLAÇ ÜCRETİ </f:facet>
                         #{h.ilac_ucret}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> İlaç Tarihi </f:facet>
+                    <f:facet name ="header"> İLAÇ TARİHİ </f:facet>
                         #{h.ilac_tarih}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> YÖNETİM </f:facet>
-                    
-                    <h:commandButton styleClass="btn btn-warning" action="#{ilacBean.updateForm(h)}" value="update"/>
+
+                    <h:commandButton styleClass="btn btn-primary" action="#{ilacBean.updateForm(h)}" value="update"/>
                     <h:commandButton styleClass="btn btn-danger" action="#{ilacBean.delete(h)}" value="delete"/>
-                    
+
 
                 </h:column>
             </h:dataTable>

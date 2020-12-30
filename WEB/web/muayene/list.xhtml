@@ -8,28 +8,27 @@
 
     <ui:define name="content">
 
-
         <h:form>
             <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön" />
             <h:commandButton styleClass="btn btn-info" action="/muayene/create" value="Yeni Muayene Kayıt" />
 
-            <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{muayeneBean.read}" var="h">
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{muayeneBean.read}" var="h">
                 <h:column>
-                    <f:facet name ="header"> Muayene ID </f:facet>
+                    <f:facet name ="header"> MUAYENE ID </f:facet>
                         #{h.muayene_id}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> Muayene Tarihi </f:facet>
+                    <f:facet name ="header"> MUAYENE TARİHİ </f:facet>
                         #{h.muayene_tarih}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> Muayene Saati </f:facet>
+                    <f:facet name ="header"> MUAYENE SAATİ </f:facet>
                         #{h.muayene_saat}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> YÖNETİM </f:facet>
                     
-                    <h:commandButton styleClass="btn btn-warning" action="#{muayeneBean.updateForm(h)}" value="update"/>
+                    <h:commandButton styleClass="btn btn-primary" action="#{muayeneBean.updateForm(h)}" value="update"/>
                     <h:commandButton styleClass="btn btn-danger" action="#{muayeneBean.delete(h)}" value="delete"/>
                     
 

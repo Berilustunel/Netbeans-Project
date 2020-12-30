@@ -32,7 +32,7 @@ public class randevuDAO extends dbConnection {
         try {
             Statement st = this.connect().createStatement();
             st.execute("insert into randevu (id_randevu, hasta_id, doktor_id, klinik_id, randevu_tarih) "
-                    + "values('" + h.getId_randevu() + "','" + h.getHasta_id()+ "', '" + h.getDoktor_id()+ "','" + h.getKlinik_id()+ "', '" +h.getRandevu_tarih()+ "')");
+                    + "values('" + h.getId_randevu()+ "','" + h.getHasta_id()+ "', '" + h.getDoktor_id()+ "', '" + h.getRandevu_tarih()+ "')");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -59,7 +59,7 @@ public class randevuDAO extends dbConnection {
     public void update(randevu h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update randevu set id_randevu='" +h.getId_randevu()  + "',hasta_id='" + h.getHasta_id()+ "',doktor_id='" + h.getDoktor_id()+ "',klinik_id='" +h.getKlinik_id()+ "',randevu_tarih='" +h.getRandevu_tarih()  + "' where id_randevu=" + h.getId_randevu());
+            st.executeUpdate("update randevu set hasta_id='" +h.getHasta_id()+ "'where id_randevu=" + h.getId_randevu());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

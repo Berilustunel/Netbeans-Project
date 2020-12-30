@@ -6,13 +6,23 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
+       
         <h:form>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Kardiyoloji"/> <br/> <br/>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Genel Cerrahi"/> <br/> <br/>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Göğüs Cerrahisi"/> <br/> <br/>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Kalp Damar Cerrahisi"/> <br/> <br/>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Kulak Burun Boğaz Hastalıkları"/> <br/> <br/>
-            <h:commandButton styleClass="btn btn-primary" action="/brans/list" value="Nefroloji"/> <br/> <br/>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">BÖLÜMLER</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Kardiyoloji</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Kardiyoloji Bölümünü Hakkında Bilgi Edinin"/>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Genel Cerrahi</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Genel Cerrahi Bölümü Hakkında Bilgi Edinin"/>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-success">Göğüs Cerrahisi</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Göğüs Cerrahisi Bölümü Hakkında Bilgi Edinin"/>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Kalp Damar Cerrahisi</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Kalp Damar Bölümü Hakkında Bilgi Edinin"/>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Kulak Burun Boğaz Hastalıkları</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Kulak Burun Boğaz Bölümü Hakkında Bilgi Edinin"/>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-info">Nefroloji</a>
+                <h:commandButton styleClass="btn btn-link" action="/hastalik_content/list" value="Nefroloji Bölümü Hakkında Bilgi Edinin"/>    
+            </div>
         </h:form> 
 
     </ui:define>

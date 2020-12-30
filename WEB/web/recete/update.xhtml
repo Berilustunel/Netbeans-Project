@@ -15,11 +15,11 @@
                 <label> Reçete Saati </label>
                 <h:inputText styleClass="form-control" value="#{receteBean.entity.recete_saat}" /> <br/>
                 <label> İlaç </label>
-                <h:selectOneMenu value="#{ilacBean.entity.ilac_id}">
+                <h:selectOneMenu value="#{receteBean.entity.ilac_id}">
                     <f:selectItems value="#{ilacBean.read}" var="i" itemLabel="#{i.ilac_ad}" itemValue="#{i.ilac_id}"> </f:selectItems>
                 </h:selectOneMenu>
             </div>
-            <h:commandButton styleClass="btn btn-primary" action="#{receteBean.update()}" value="Update"/>
+            <h:commandButton styleClass="btn btn-info" action="#{receteBean.update()}" value="Update"/>
         </h:form>
     </ui:define>
 </ui:composition>

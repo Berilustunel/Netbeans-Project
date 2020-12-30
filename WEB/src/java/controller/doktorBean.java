@@ -2,6 +2,7 @@ package controller;
 
 import dao.doktorDAO;
 import entity.doktor;
+import entity.doktor;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -27,6 +28,10 @@ public class doktorBean implements Serializable {
         this.getDao().create(entity);
         this.entity = new doktor();
         return "/doktor/list";
+    }
+    
+    public doktor getById(int id){
+        return this.getDao().getById(id);
     }
 
     public List<doktor> getRead() {

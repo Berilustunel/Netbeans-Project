@@ -12,6 +12,10 @@
                 <h:inputText styleClass="form-control" value="#{klinikBean.entity.klinik_id}" /> <br/>
                 <label> Klinik Ad </label>
                 <h:inputText styleClass="form-control" value="#{klinikBean.entity.ad}" /> <br/>
+                <label> Hastalıklar </label>
+                <h:selectOneMenu value="#{klinikBean.entity.hastalik_id}">
+                    <f:selectItems value="#{klinikBean.read}" var="k" itemLabel="#{k.hastalik_id}" itemValue="#{k.hastalik_id}"> </f:selectItems>
+                </h:selectOneMenu>
             </div>
             <h:commandButton styleClass="btn btn-primary" action="#{klinikBean.create()}" value="Create"/>
         </h:form>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+
+    <ui:define name="content">
+
+        <h:form>
+            <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön" />            
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{gecmisBean.read}" var="h">
+                <h:column>
+                    <f:facet name ="header"> MUAYENE TARİHİ </f:facet>
+                        #{h.muayene_tarih}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> HASTA ADI </f:facet>
+                        #{hastataniBean.getById(h.hasta_id).ad}
+                </h:column>                
+                <h:column>
+                    <f:facet name ="header"> HASTA SOYADI </f:facet>
+                        #{hastataniBean.getById(h.hasta_id).soyad}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> DOKTOR ADI </f:facet>
+                        #{doktorBean.getById(h.doktor_id).doktor_ad}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> DOKTOR SOYADI </f:facet>
+                        #{doktorBean.getById(h.doktor_id).doktor_soyad}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> HASTA GEÇMİSİ </f:facet>
+                        #{h.hasta_gecmis}
+                </h:column>
+                <h:column>
+                    <f:facet name ="header"> HASTA DURUMU </f:facet>
+                        #{h.hasta_durum}
+                </h:column>                
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

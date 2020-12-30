@@ -7,34 +7,35 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
+       
         <h:form>
             <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön "/>
             <h:commandButton styleClass="btn btn-info" action="/randevu/create" value="Yeni Randevu Kayıt "/>
             <hr/>
-            <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{randevuBean.read}" var="h">
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{randevuBean.read}" var="h">
                 <h:column>
                     <f:facet name ="header"> RANDEVU ID </f:facet>
                         #{h.id_randevu}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> HASTA ADI </f:facet>
-                        #{randevuBean.getById(h.hasta_id)}
+                        #{hastataniBean.getById(h.hasta_id).ad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> HASTA SOYADI </f:facet>
-                        #{randevuBean.getById(h.hasta_id)}
+                        #{hastataniBean.getById(h.hasta_id).soyad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> DOKTOR ADI </f:facet>
-                        #{randevuBean.getById(h.doktor_id)}
+                        #{doktorBean.getById(h.doktor_id).doktor_ad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> DOKTOR SOYADI </f:facet>
-                        #{randevuBean.getById(h.doktor_id)}
+                        #{doktorBean.getById(h.doktor_id).doktor_soyad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> KLİNİK ADI </f:facet>
-                        #{randevuBean.getById(h.klinik_id)}
+                        #{klinikBean.getById(h.klinik_id).ad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> RANDEVU TARİHİ </f:facet>
@@ -43,7 +44,7 @@
                 <h:column>
                     <f:facet name ="header"> YÖNETİM </f:facet>
                     
-                    <h:commandButton styleClass="btn btn-warning" action="#{randevuBean.updateForm(h)}" value="update"/>
+                    <h:commandButton styleClass="btn btn-primary" action="#{randevuBean.updateForm(h)}" value="update"/>
                     <h:commandButton styleClass="btn btn-danger" action="#{randevuBean.delete(h)}" value="delete"/>
                     
                 </h:column>

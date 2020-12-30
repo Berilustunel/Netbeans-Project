@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<navigation-rule>
+    <description>UYE GIRIS SAYFASI</description>
+    <from-view-id>uyegirisi.xhtml</from-view-id>
+    
+    <navigation-case>
+        <from-action>#{uyeBean.uyeGirisiniDenetle}</from-action>
+        <from-output-come>basarili</from-output-come>
+        <to-view-id>basarili.xhtml</to-view-id>
+    </navigation-case>
+    
+    <navigation-case>
+        <from-action>#{uyeBean.uyeGirisiniDenetle}</from-action>
+        <from-output-come>basarisiz</from-output-come>
+        <to-view-id>basarisiz.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+    <description>BASARISIZ UYE GIRIS SAYFASI</description>
+    <from-view-id>/basarisiz.xhtml</from-view-id>
+    
+    <navigation-case>
+        <from-action>#{uyeBean.uyeGirisiniDenetle}</from-action>
+        <from-output-come>gecerli</from-output-come>
+        <to-view-id>/basarili.xhtml</to-view-id>
+    </navigation-case>
+    
+    <navigation-case>
+        <from-action>#{uyeBean.uyeGirisiniDenetle}</from-action>
+        <from-output-come>gecersiz</from-output-come>
+        <to-view-id>/basarisiz.xhtml</to-view-id>
+    </navigation-case>
+    
+</navigation-rule>

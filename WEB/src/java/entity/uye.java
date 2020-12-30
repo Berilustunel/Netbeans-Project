@@ -10,34 +10,24 @@ package entity;
  * @author Beril
  */
 public class uye {
-    
-    private int uye_id;
-    private String kullanici_id;
+ 
+    private String kullanici_adi;
     private String sifre;
 
     public uye() {
     }
 
-    public uye(int uye_id, String kullanici_id, String sifre) {
-        this.uye_id = uye_id;
-        this.kullanici_id = kullanici_id;
+    public uye(String kullanici_adi, String sifre) {
+        this.kullanici_adi = kullanici_adi;
         this.sifre = sifre;
     }
 
-    public int getUye_id() {
-        return uye_id;
+    public String getKullanici_adi() {
+        return kullanici_adi;
     }
 
-    public void setUye_id(int uye_id) {
-        this.uye_id = uye_id;
-    }
-
-    public String getKullanici_id() {
-        return kullanici_id;
-    }
-
-    public void setKullanici_id(String kullanici_id) {
-        this.kullanici_id = kullanici_id;
+    public void setKullanici_adi(String kullanici_adi) {
+        this.kullanici_adi = kullanici_adi;
     }
 
     public String getSifre() {

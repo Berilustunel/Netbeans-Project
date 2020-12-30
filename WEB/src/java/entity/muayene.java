@@ -7,12 +7,14 @@ package entity;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author Beril
  */
 public class muayene {
+
     private int muayene_id;
     private Date muayene_tarih;
     private Time muayene_saat;
@@ -49,6 +51,5 @@ public class muayene {
     public void setMuayene_saat(Time muayene_saat) {
         this.muayene_saat = muayene_saat;
     }
-    
-    
+
 }

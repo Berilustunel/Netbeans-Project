@@ -5,7 +5,7 @@
  */
 package entity;
 
-import java.sql.Date;
+
 
 /**
  *
@@ -15,12 +15,12 @@ public class ilac {
     private int ilac_id;
     private String ilac_ad;
     private int ilac_ucret;
-    private Date ilac_tarih;
+    private String ilac_tarih;
 
     public ilac() {
     }
 
-    public ilac(int ilac_id, String ilac_ad, int ilac_ucret, Date ilac_tarih) {
+    public ilac(int ilac_id, String ilac_ad, int ilac_ucret, String ilac_tarih) {
         this.ilac_id = ilac_id;
         this.ilac_ad = ilac_ad;
         this.ilac_ucret = ilac_ucret;
@@ -51,11 +51,11 @@ public class ilac {
         this.ilac_ucret = ilac_ucret;
     }
 
-    public Date getIlac_tarih() {
+    public String getIlac_tarih() {
         return ilac_tarih;
     }
 
-    public void setIlac_tarih(Date ilac_tarih) {
+    public void setIlac_tarih(String ilac_tarih) {
         this.ilac_tarih = ilac_tarih;
     }
     

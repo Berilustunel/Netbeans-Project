@@ -7,33 +7,31 @@
                 template="/template/admin.xhtml">
 
     <ui:define name="content">
-
-
         <h:form>
             <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön" />
             <h:commandButton styleClass="btn btn-info" action="/recete/create" value="Yeni Reçete Kayıt" />
 
-            <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{receteBean.read}" var="h">
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{receteBean.read}" var="h">
                 <h:column>
-                    <f:facet name ="header"> Reçete ID </f:facet>
+                    <f:facet name ="header"> REÇETE ID </f:facet>
                         #{h.recete_id}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> Reçete Tarihi </f:facet>
+                    <f:facet name ="header"> REÇETE TARİHİ </f:facet>
                         #{h.recete_tarih}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> Reçete Saati </f:facet>
+                    <f:facet name ="header"> REÇETE SAATİ </f:facet>
                         #{h.recete_saat}
                 </h:column>
                 <h:column>
-                    <f:facet name ="header"> İlaç </f:facet>
+                    <f:facet name ="header"> İLAÇ </f:facet>
                         #{ilacBean.getById(h.ilac_id).ilac_ad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> YÖNETİM </f:facet>
                     
-                    <h:commandButton styleClass="btn btn-warning" action="#{receteBean.updateForm(h)}" value="update"/>
+                    <h:commandButton styleClass="btn btn-primary" action="#{receteBean.updateForm(h)}" value="update"/>
                     <h:commandButton styleClass="btn btn-danger" action="#{receteBean.delete(h)}" value="delete"/>
                     
 

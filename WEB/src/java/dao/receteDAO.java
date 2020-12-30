@@ -43,7 +43,7 @@ public class receteDAO extends dbConnection {
     public void update(recete h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update recete set recete_id='" + h.getRecete_id() + "', recete_tarih'"+ h.getRecete_tarih()+ "', recete_saat'"+ h.getRecete_saat());
+            st.executeUpdate("update recete set recete_tarih='" + h.getRecete_tarih()+ "'where recete_id=" + h.getRecete_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

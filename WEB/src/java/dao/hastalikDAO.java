@@ -38,8 +38,8 @@ public class hastalikDAO extends dbConnection {
     public void create(hastalik h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("insert into hastalik (hastalik_id,ad) "
-                    + "values('" + h.getHastalik_id()+ "','" + h.getAd() + "')");
+            st.execute("insert into hastalik (hastalik_id, ad) "
+                    + "values('"+h.getHastalik_id()+"', '"+h.getAd()+"')");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -65,7 +65,7 @@ public class hastalikDAO extends dbConnection {
     public void update(hastalik h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update hastalik set ad='" + h.getAd()+"')");
+            st.executeUpdate("update hastalik set ad='" +h.getAd()+ "'where hastalik_id=" + h.getHastalik_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

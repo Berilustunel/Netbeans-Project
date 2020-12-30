@@ -62,7 +62,7 @@ public class bransDAO extends dbConnection {
     public void update(brans h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update brans set ad='" + h.getBolumler());
+            st.executeUpdate("update brans set bolumler='" +h.getBolumler()+ "'where brans_id=" + h.getBrans_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -72,7 +72,7 @@ public class bransDAO extends dbConnection {
     public void delete(brans h) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from brans where brans_id='" + h.getBrans_id()+ "')");
+            st.executeUpdate("delete from brans where brans_id=" + h.getBrans_id());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

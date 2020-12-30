@@ -6,9 +6,10 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/admin.xhtml"
                 xmlns:p="http://primefaces.org/ui">
-
+    
     <ui:define name="content">
-         <h:form>
+
+        <h:form>
             <p:panelGrid columns="1">
                 <h:outputText value="Bölüm Seçiniz"/>
                 <p:selectOneMenu id="bolumler" value="#{bransBean.entity.bolumler}">
@@ -16,24 +17,22 @@
                     <f:selectItems value="#{bransBean.read}"/>
                     <p:ajax update="bolumler" listener="#{bransBean.entity.bolumler}"/>
                 </p:selectOneMenu>
-
-                
             </p:panelGrid>
         </h:form>
+                <h:body>
+                    <img src="resources/images/hasta.jpg" width="500" height="350"/>
+                </h:body>
+       
         <h:form>
             <br/>
             <h:commandButton styleClass="btn btn-info" action="/index" value="Index Sayfasına Dön" />
             <h:commandButton styleClass="btn btn-info" action="/hasta/create" value="Yeni Hasta Kayıt" />
             <h:commandButton styleClass="btn btn-info" action="/brans/list" value="Bölümleri Görüntüle" />
 
-            <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{hastataniBean.read}" var="h">
+            <h:dataTable styleClass="table table-hover table-info mt-3" value="#{hastataniBean.read}" var="h">
                 <h:column>
                     <f:facet name ="header"> HASTA ID </f:facet>
                         #{h.hasta_id}
-                </h:column>
-                <h:column>
-                    <f:facet name ="header"> HASTALIK ID </f:facet>
-                        #{hastalikBean.getById(h.hastalik_id).ad}
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> HASTA ADI </f:facet>
@@ -47,7 +46,7 @@
                     <f:facet name ="header"> HASTA YAŞI </f:facet>
                         #{h.yas}
                 </h:column>
-                 <h:column>
+                <h:column>
                     <f:facet name ="header"> İLAÇ </f:facet>
                         #{ilacBean.getById(h.ilac_id).ilac_ad}
                 </h:column>
@@ -61,10 +60,10 @@
                 </h:column>
                 <h:column>
                     <f:facet name ="header"> YÖNETİM </f:facet>
-                    
-                    <h:commandButton styleClass="btn btn-warning" action="#{hastataniBean.updateForm(h)}" value="update"/>
+
+                    <h:commandButton styleClass="btn btn-primary" action="#{hastataniBean.updateForm(h)}" value="update"/>
                     <h:commandButton styleClass="btn btn-danger" action="#{hastataniBean.delete(h)}" value="delete"/>
-                    
+
 
                 </h:column>
             </h:dataTable>

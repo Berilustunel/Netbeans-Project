@@ -20,7 +20,7 @@ public class ilacDAO extends dbConnection {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from ilac where ilac_id="+id );
             rs.next();
-            i = new ilac (rs.getInt("ilac_id"),rs.getString("ilac_ad"), rs.getInt("ilac_ucret"), rs.getDate("ilac_tarih"));
+            i = new ilac (rs.getInt("ilac_id"),rs.getString("ilac_ad"), rs.getInt("ilac_ucret"), rs.getString("ilac_tarih"));
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -43,7 +43,7 @@ public class ilacDAO extends dbConnection {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from ilac order by ilac_id asc");
             while (rs.next()) {
-                ilac tmp = new ilac(rs.getInt("ilac_id"),rs.getString("ilac_ad"), rs.getInt("ilac_ucret"), rs.getDate("ilac_tarih"));
+                ilac tmp = new ilac(rs.getInt("ilac_id"),rs.getString("ilac_ad"), rs.getInt("ilac_ucret"), rs.getString("ilac_tarih"));
                 list.add(tmp);
             }
 
@@ -57,7 +57,7 @@ public class ilacDAO extends dbConnection {
     public void update(ilac h) {
         try {
             Statement st = this.connect().createStatement();
-            st.execute("update ilac set ilac_ad='" + h.getIlac_ad() + "', ilac_ucret'"+ h.getIlac_ucret() + "' ilac_tarih'"+ h.getIlac_tarih() + "'where ilac_id'"+ h.getIlac_id());
+            st.executeUpdate("update ilac set ilac_ad='" + h.getIlac_ad()+ "'where ilac_id=" + h.getIlac_id());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -18,6 +18,7 @@ public class hastatani {
     private int yas;
     private int ilac_id;
     private int muayene_id;
+    
 
     public hastatani() {
 
@@ -120,6 +121,8 @@ public class hastatani {
         }
         return true;
     }
+
+   
     
     
     
