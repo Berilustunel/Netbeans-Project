@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <div class="form-group">
+                <label> Reçete ID </label>
+                <h:inputText styleClass="form-control" value="#{receteBean.entity.recete_id}" /> <br/>
+                <label> Reçete Tarihi </label>
+                <h:inputText styleClass="form-control" value="#{receteBean.entity.recete_tarih}" /> <br/>
+                <label> Reçete Saati </label>
+                <h:inputText styleClass="form-control" value="#{receteBean.entity.recete_saat}" /> <br/>
+                <label> İlaç </label>
+                <h:selectOneMenu value="#{receteBean.entity.ilac_id}">
+                    <f:selectItems value="#{ilacBean.read}" var="i" itemLabel="#{i.ilac_ad}" itemValue="#{i.ilac_id}"> </f:selectItems>
+                </h:selectOneMenu>
+            </div>
+            <h:commandButton styleClass="btn btn-info" action="#{receteBean.update()}" value="Update"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
